@@ -8,7 +8,6 @@ function traindata(conf::ConfParse)::Data
     @info "Loading source data"
     @time X = _getdata(conf, "train_data_file", "train_attr_name")
 
-    @info "!!!Debug message in traindata!!!"
     @info "Converting them to BigData"
     @time data = _splitdata(X, getworkers(conf))
 

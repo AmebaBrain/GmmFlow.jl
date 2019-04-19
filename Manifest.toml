@@ -98,9 +98,9 @@ uuid = "8ba89e20-285c-5b6f-9357-94700520ee1b"
 
 [[Distributions]]
 deps = ["Distributed", "LinearAlgebra", "PDMats", "Printf", "QuadGK", "Random", "SpecialFunctions", "Statistics", "StatsBase", "StatsFuns", "Test"]
-git-tree-sha1 = "dec0ebacfbc3a2126c614ab5e903c9ef063688d0"
+git-tree-sha1 = "022e6610c320b6e19b454502d759c672580abe00"
 uuid = "31c24e10-a181-5473-b8eb-7969acd0382f"
-version = "0.17.0"
+version = "0.18.0"
 
 [[FileIO]]
 deps = ["Pkg", "Random", "Test"]
@@ -109,10 +109,12 @@ uuid = "5789e2e9-d7fb-5bc7-8068-2c6fae9b9549"
 version = "1.0.6"
 
 [[GaussianMixtures]]
-deps = ["Clustering", "Compat", "DelimitedFiles", "Distributed", "Distributions", "FileIO", "JLD", "LinearAlgebra", "Logging", "PDMats", "Printf", "Random", "ScikitLearnBase", "SpecialFunctions", "Statistics", "StatsBase"]
-git-tree-sha1 = "9b892cfc95da04ca9eff2387bc66f6baddeed606"
+deps = ["Arpack", "Clustering", "Compat", "DelimitedFiles", "Distributed", "Distributions", "JLD", "LinearAlgebra", "Logging", "PDMats", "Printf", "Random", "ScikitLearnBase", "SpecialFunctions", "Statistics", "StatsBase"]
+git-tree-sha1 = "f84d595c0a1c22dfb590a41c83ffca0f8e567a6d"
+repo-rev = "master"
+repo-url = "https://github.com/davidavdav/GaussianMixtures.jl.git"
 uuid = "cc18c42c-b769-54ff-9e2a-b28141a64aae"
-version = "0.3.0"
+version = "0.3.0+"
 
 [[HDF5]]
 deps = ["BinDeps", "Blosc", "CRC32c", "Distributed", "Homebrew", "Libdl", "LinearAlgebra", "Mmap", "Pkg", "Test", "WinRPM"]
@@ -332,10 +334,10 @@ deps = ["Distributed", "InteractiveUtils", "Logging", "Random"]
 uuid = "8dfed614-e22c-5e08-85e1-65c5234f0b40"
 
 [[TranscodingStreams]]
-deps = ["Pkg", "Random", "Test"]
-git-tree-sha1 = "f42956022d8084539f1d7219f632542b0ea686ce"
+deps = ["Random", "Test"]
+git-tree-sha1 = "a25d8e5a28c3b1b06d3859f30757d43106791919"
 uuid = "3bb67fe8-82b1-5028-8e26-92a6c54297fa"
-version = "0.9.3"
+version = "0.9.4"
 
 [[URIParser]]
 deps = ["Test", "Unicode"]
