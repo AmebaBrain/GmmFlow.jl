@@ -3,6 +3,7 @@ module GmmFlow
 include("utils.jl")
 include("data.jl")
 include("model.jl")
+include("flow.jl")
 
 export
     # data.jl
@@ -12,6 +13,9 @@ export
     # model.jl
     modelname, genmodel, savemodel,
     loadmodel, mapcluster, savemap,
-    mapstats
-
+    mapstats,
+    # flow.jl
+    modelflow,
+    mapflow,
+    mainflow
 end

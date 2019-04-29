@@ -1,17 +1,12 @@
+@info "Parsing config file"
 using ConfParser
-
 conf = ConfParse("gmm.ini")
 parse_conf!(conf)
 
-flow = retrieve(conf, "processing", "type")
+@info "Triggering execution flow"
+using Distributed
+using GmmFlow
+addworkers(conf)
+@everywhere using GmmFlow, SharedArrays, JLD2, LinearAlgebra, GaussianMixtures
 
-if flow == "all"
-    include("gen_model.jl")
-    include("map_cluster.jl")
-elseif flow == "gmm"
-    include("gen_model.jl")
-elseif flow == "map"
-    include("map_cluster.jl")
-else
-    error("Unknown processing type $flow")
-end
+mainflow(conf)
