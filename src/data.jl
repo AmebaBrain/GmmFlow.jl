@@ -27,6 +27,11 @@ end
 "read data from Matlab file"
 function _readmat(filename::String, dataname::String)::Array{Float64,2}
     matopen(filename) do file
+        vars = names(file)
+        if length(vars) == 1 && vars[1] != dataname
+            @warn filename * " contains single variable \"" * vars[1] * "\". Using it instead of \"" * dataname * "\""
+            dataname = vars[1]
+        end
         read(file, dataname)
     end
 end
@@ -47,6 +52,9 @@ function _getdata(conf::ConfParse, filename::String, attrname::String)::Array{Fl
         readdlm(path * file, ',')
     elseif type == :mat
         attr = retrieve(conf, "mat", attrname)
+        if attr == "<train_data_file>" || attr == "<map_data_file>"
+            attr = String(SubString(file, 1, findlast(".", file).start - 1))
+        end
         _readmat(path * file, attr)
     end
 end

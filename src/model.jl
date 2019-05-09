@@ -29,14 +29,14 @@ function modelname(conf::ConfParse)
     path = retrieve(conf, "environment", "path")
     model_file = retrieve(conf, "environment", "model_file")
 
-    if model_file == "<train_data_file>-<model_type>-<classes>.jld2"
+    if model_file == "<train_data_file>_<model_type>_<classes>.jld2"
         filename = retrieve(conf, "environment", "train_data_file")
         model_type = retrieve(conf, "gmm", "model_type")
         classes = parse(Int, retrieve(conf, "gmm", "classes"))
 
         filename = SubString(filename, 1, findlast(".", filename).start - 1)
 
-        model_file = filename * '-' * model_type * '-' * string(classes) * ".jld2"
+        model_file = filename * '_' * model_type * '_' * string(classes) * ".jld2"
     end
 
     path * model_file
@@ -77,14 +77,14 @@ function savemap(conf::ConfParse, arr::SharedArray{Int16})
     path = retrieve(conf, "environment", "path")
     res_file = retrieve(conf, "environment", "res_file")
 
-    if res_file == "<map_data_file>-<model_type>-<classes>-map.csv"
+    if res_file == "<map_data_file>_<model_type>_<classes>_map.csv"
         filename = retrieve(conf, "environment", "map_data_file")
         model_type = retrieve(conf, "gmm", "model_type")
         classes = parse(Int, retrieve(conf, "gmm", "classes"))
 
         filename = SubString(filename, 1, findlast(".", filename).start - 1)
 
-        res_file = filename * '-' * model_type * '-' * string(classes) * "-map.csv"
+        res_file = filename * '_' * model_type * '_' * string(classes) * "_map.csv"
     end
 
     @info "Writing results into a file"
